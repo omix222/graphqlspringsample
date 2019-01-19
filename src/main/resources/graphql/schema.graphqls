@@ -1,0 +1,35 @@
+type Group {
+    id: ID!
+    name: String!
+}
+
+type User {
+    id: ID!
+    name: String!
+    group: Group!
+    todos: [ToDo]
+}
+
+type ToDo {
+    id: ID!
+    content: String!
+    completed: Boolean!
+}
+
+type Query {
+    getUser(id: ID!): User
+}
+
+input _ToDo {
+    content: String!
+    completed: Boolean!
+    userId: ID!
+}
+
+type Mutation {
+    add(todo: _ToDo): [ToDo]
+}
+
+type Subscription {
+    added(id: ID!): ToDo
+}
