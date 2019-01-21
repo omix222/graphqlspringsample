@@ -21,5 +21,7 @@ public class UserDao {
     public Optional<User> findById(int id) {
         return users.stream().filter(u -> u.getId() == id).findFirst();
     }
-
+    public List<User> findAll() {
+        return users;
+    }
 }

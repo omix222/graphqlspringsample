@@ -19,7 +19,9 @@ type ToDo {
 type Query {
     getUser(id: ID!): User
 }
-
+type Query {
+    getUsers: [User]
+}
 input _ToDo {
     content: String!
     completed: Boolean!

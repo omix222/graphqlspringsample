@@ -3,6 +3,9 @@ package com.example.demo.resolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.example.demo.dao.UserDao;
 import com.example.demo.type.User;
+
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,5 +20,7 @@ public class UserQueryResolver implements GraphQLQueryResolver {
     public User getUser(int id) throws Exception {
         return userDao.findById(id).orElseThrow(() -> new Exception("User not found."));
     }
-
+    public List <User> getUsers() throws Exception {
+        return userDao.findAll();
+    }
 }
